@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KURS - About Us</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">KURS</div>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'welcome' %}">Main page</a></li>
+                    <li><a href="{% url 'welcome' %}#f1">Courses</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                    <li><a href="{% url 'login' %}">Sign In</a></li>
+                    <li><a href="{% url 'singup' %}" class="btn-signup">Sign Up</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- About Section -->
+        <section class="about">
+            <h1>About KURS</h1>
+            <p class="intro">KURS is your gateway to knowledge, offering a wide range of online courses designed to empower learners worldwide.</p>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Our Mission</h2>
+                    <p>We aim to make education accessible, affordable, and engaging for everyone. Whether you're looking to upskill, explore a new hobby, or advance your career, KURS has something for you.</p>
+                    <h2>Who We Are</h2>
+                    <p>Founded in 2025, KURS is a platform built by a team of passionate educators and technologists. We partner with top instructors to bring you high-quality courses in various fields.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://media.istockphoto.com/id/1256522124/photo/group-of-entrepreneurs-talking-on-a-meeting.jpg?s=612x612&w=0&k=20&c=FLMoPyNOe6Bn0kTFya3sv9zio4V64Cask25JvrNpk0c=" alt="KURS Team">
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2025 KURS. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="{% url 'about' %}">About</a>
+                <a href="{% url 'contact' %}">Contact</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </footer>
+    </div>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2vw;
+        }
+
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2vh 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+        }
+
+        .logo {
+            font-size: clamp(20px, 5vw, 24px);
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: clamp(15px, 2vw, 25px);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #007bff;
+        }
+
+        .btn-signup {
+            background: #007bff;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: transform 0.2s ease;
+        }
+
+        .btn-signup:hover {
+            transform: scale(1.05);
+        }
+
+        /* About Section */
+        .about {
+            padding: clamp(40px, 10vh, 60px) 0;
+            text-align: center;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .about h1 {
+            font-size: clamp(24px, 5vw, 36px);
+            margin-bottom: 20px;
+        }
+
+        .intro {
+            font-size: clamp(16px, 3vw, 18px);
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .about-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            text-align: left;
+        }
+
+        .about-text h2 {
+            font-size: clamp(20px, 4vw, 24px);
+            margin-bottom: 15px;
+        }
+
+        .about-text p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3vh 0;
+            text-align: center;
+            background: #f8f9fa;
+            margin-top: 40px;
+        }
+
+        .footer-links {
+            margin-top: 10px;
+        }
+
+        .footer-links a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #666;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #007bff;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-text {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</body>
+</html>
