@@ -4,13 +4,20 @@ from course.models import Course
 from django.db.models import Q
 from .forms import SignUpForm, LoginForm
 from django.contrib.auth import login, logout
+from django.core.paginator import Paginator
 # Create your views here.
 
 class Welcome(View):
     def get(self, request):
         query = request.GET.get('t', '')
-        courses = Course.objects.filter(Q(title__icontains=query)|Q(teacher__icontains=query))
-        return render(request, template_name='welcome.html', context={'courses':courses})
+        if query:
+            page_obj = Course.objects.filter(Q(title__icontains=query)|Q(teacher__icontains=query))
+        else:
+            products = Course.objects.all()
+            paginator = Paginator(products, 4)  # Show 25 contacts per page.
+            page_number = request.GET.get("page")
+            page_obj = paginator.get_page(page_number)
+        return render(request, template_name='welcome.html', context={'courses':page_obj})
 
 
 def about(request):
